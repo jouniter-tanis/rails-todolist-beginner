@@ -1,0 +1,2 @@
+class TodoRecord < ApplicationRecord
+end

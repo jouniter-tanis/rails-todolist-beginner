@@ -1,0 +1,32 @@
+
+
+<%= form_with(model: todo_record) do |form| %>
+  <% if todo_record.errors.any? %>
+  <div style="color: red">
+      <h2><%= pluralize(todo_record.errors.count, "error") %> prohibited this todo_record from being saved:</h2>
+
+      <ul>
+        <% todo_record.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <form >
+      <div class="mb-3">
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title, class: "form-control"  %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :description, class:"form-label", style: "display: block" %>
+        <%= form.text_area :description, class: "form-control",id:"todo_descid"  %>
+      </div>
+      <div class="mb-3">
+         <label for="tod_status" class="form-label">Status</label>
+        <%= form.select(:status, ['Draft','In Active', 'Cancelled','Completed'], {include_blank: ""}, { :class => 'form-select form',required:true }) %>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+      <%= link_to "ToDo Lists", todo_records_path, class:'btn btn-primary' %>
+    </form>
+    <% end %>

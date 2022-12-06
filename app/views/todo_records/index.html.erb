@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Todo Lists</h1>
+
+    <div id="todo_records">
+      <div class="tab-content" id="ex1-content">
+        <% @todo_records.each do |todo_record| %>
+          <%= link_to [todo_record] do %>
+          <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1" onclick="">
+            <ul class="list-group mb-0">
+              <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+                        style="background-color: #f4f6f7;">
+
+                <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
+                        <%= todo_record.title %>
+              </li>
+            </ul>
+          </div>
+           <% end %>
+        <% end %>
+      </div>
+    </div>
+
+      <%= link_to "New ToDo Item ", new_todo_record_path, class: 'btn btn-success ms-2' %>
+
+
+ 
+
+
+
+
+
